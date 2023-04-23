@@ -11,7 +11,7 @@ function renderLicenseBadge(license) {
     return `![GNU](https://img.shields.io/badge/license-GNU%20GPLv3-orange)`
   }
   else {
-   return `` 
+   return ``
   }
 }
 
@@ -28,7 +28,7 @@ function renderLicenseLink(license) {
     return `[GNU] (https://choosealicense.com/licenses/agpl-3.0/)`
    }
    else {
-    return `` 
+    return ``
    }
 }
 
@@ -62,17 +62,30 @@ ${data.description}
 
 ## Table of Contents
 
-// If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage parameters)
-- [Credits](#credits)
-- [License](#license)
+${data.tableOfContents.includes('installation') ? `- [Installation](#installation)` : ''}
+${data.tableOfContents.includes('usage') ? `- [Usage](#usage)` : ''}
+${data.tableOfContents.includes('credits') ? `- [Credits](#credits)` : ''}
+${data.tableOfContents.includes('features') ? `- [Features](#features)` : ''}
+${data.tableOfContents.includes('how to contribute') ? `- [How to Contribute](#how-to-contribute)` : ''}
+${data.tableOfContents.includes('test') ? `- [Test](#test)` : ''}
 
 ## License
 
 ${renderLicenseLink(data.license)}
 ${renderLicenseSection(data.license)}
+
+${data.Installation ? `## Installation
+${data.Installation}` : ''}
+${data.usages ? `## Usage
+${data.usages}` : ''}
+${data.credits ? `## Credits
+${data.credits}` : ''}
+${data.Features ? `## Features
+${data.Features}` : ''}
+${data.Contributions ? `## How to Contribute
+${data.Contributions}` : ''}
+${data.Tests ? `## Tests
+${data.Tests}` : ''}
 `;
 }
 

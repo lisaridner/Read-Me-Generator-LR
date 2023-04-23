@@ -11,43 +11,102 @@ const questions = [
     {
         type: 'input',
         message: 'What is the title of project?',
-        name: 'title',
+        name: 'Title',
       },
     {
         type: 'input',
         message: 'Please provide a description of your project?',
-        name: 'description',
+        name: 'Description',
       },
+      {
+        type: 'checkbox',
+        name: 'TableOfContents',
+        message: 'Please choose the sections that you would like to include in the table of contents:',
+        choices: [
+          {
+            name: 'Installation',
+            value: 'Installation'
+          },
+          {
+            name: 'Usage',
+            value: 'Usage'
+          },
+          {
+            name: 'Credits',
+            value: 'Credits'
+          },
+          {
+            name: 'License',
+            value: 'License'
+          },
+         {
+            name: 'Features',
+            value: 'Features'
+         },
+         {
+            name:'How-to-contribute',
+            value: 'How to contribute'
+         },
+         {
+            name:'Test',
+            value:'Test'
+         }
+
+        ]
+    },
     {
         type: 'input',
-        message: 'What are the installation instructions?',
-        name: 'installation',
-      },
+        name:'Installation',
+        message:'Are there any installations required?'
+    },
     {
         type: 'input',
-        message: 'What are the contribution guidelines?',
-        name: 'contribution',
-      },
+        name:'Usages',
+        message:'How will your project be used? '
+    },
+    {
+        type: 'input',
+        name:'Credits',
+        message:'Is there anyone you would like to credit?'
+    },
+    {
+        type: 'input',
+        name:'Features',
+        message:'Are there any features that you would like to include?'
+    },
+    {
+        type: 'input',
+        name:'Contributions',
+        message:'How can people make a contribution to your project?'
+    },
+    {
+        type: 'input',
+        name:'Tests',
+        message:'Are there any tests that you would like to include'
+    },
     {
         type: 'list',
-        message: 'Which license would you like to use?',
-        name: 'license',
-        choices: ["MIT", "Apache2.0", "GNU", "none"]
-      },
-    {
-        type: 'input',
-        message: 'What tests would you like to add?',
-        name: 'tests',
-      },
-    {
-        type: 'input',
-        message: 'What questions would you like to ask?',
-        name: 'questions',
-      },
-    ];
+        name: 'License',
+        choices:['MIT','Apache2.0','GNUPLV3',]
+    }
+];
+   
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+    fs.writeFile('README.md', data, (err) => {
+        if (err) throw err;
+        console.log('README.md file generated successfully!');
+      });
+    inquirer.prompt(questions)
+    .then((answers) => {
+        const {Title, Description, TableOfContents, Installations, Usage, Credits, Features, Contributions, Tests, License } = answers
+        const data = `title: ${Title}\ndescription: ${Description}\ntableOfContents: ${TableOfContents}\nInstallations: ${Installations}\nusage: ${Usage}\ncredits: ${Credits}\nFeatures: ${Features}\nContributions: ${Contributions}\nTests: ${Tests}\nLicense: ${License}`;
+      writeToFile('README.md', data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
 }
 
