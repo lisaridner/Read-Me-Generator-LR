@@ -7,7 +7,7 @@ function renderLicenseBadge(license) {
   else if(license==="Apache2.0"){
     return `![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue)`
   } //add the return template literal and the link for the badge
-  else if(license==="GNU"){
+  else if(license==="GNUPLV3"){
     return `![GNU](https://img.shields.io/badge/license-GNU%20GPLv3-orange)`
   }
   else {
@@ -24,7 +24,7 @@ function renderLicenseLink(license) {
    else if(license==="Apache2.0"){
     return '[Apache docs] (https://choosealicense.com/licenses/apache-2.0/)'
    } //add the return template literal and the link for the badge
-   else if(license==="GNU"){
+   else if(license==="GNUPLV3"){
     return `[GNU] (https://choosealicense.com/licenses/agpl-3.0/)`
    }
    else {
@@ -41,7 +41,7 @@ function renderLicenseSection(license) {
    else if(license==="Apache2.0"){
     return `A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.`
    } //add the return template literal and the link for the badge
-   else if(license==="GNU"){
+   else if(license==="GNUPLV3"){
     return `Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.`
    }
    else {
@@ -51,35 +51,35 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-${renderLicenseBadge(data.license)}
+  return `# ${data.Title}
+${renderLicenseBadge(data.License)}
 
 
 ## Desription
 
-${data.description}
+${data.Description}
 
 
 ## Table of Contents
 
-${data.tableOfContents.includes('installation') ? `- [Installation](#installation)` : ''}
-${data.tableOfContents.includes('usage') ? `- [Usage](#usage)` : ''}
-${data.tableOfContents.includes('credits') ? `- [Credits](#credits)` : ''}
-${data.tableOfContents.includes('features') ? `- [Features](#features)` : ''}
-${data.tableOfContents.includes('how to contribute') ? `- [How to Contribute](#how-to-contribute)` : ''}
-${data.tableOfContents.includes('test') ? `- [Test](#test)` : ''}
+${data.TableOfContents.includes('Installation') ? `- [Installation](#installation)` : ``}
+${data.TableOfContents.includes('Usage') ? `- [Usage](#usage)` : ``}
+${data.TableOfContents.includes('Credits') ? `- [Credits](#credits)` : ``}
+${data.TableOfContents.includes('Features') ? `- [Features](#features)` : ``}
+${data.TableOfContents.includes('How to contribute') ? `- [How to Contribute](#how-to-contribute)` : ``}
+${data.TableOfContents.includes('Test') ? `- [Test](#test)` : ``}
 
 ## License
 
-${renderLicenseLink(data.license)}
-${renderLicenseSection(data.license)}
+${renderLicenseLink(data.License)}
+${renderLicenseSection(data.License)}
 
 ${data.Installation ? `## Installation
 ${data.Installation}` : ''}
-${data.usages ? `## Usage
-${data.usages}` : ''}
-${data.credits ? `## Credits
-${data.credits}` : ''}
+${data.Usages ? `## Usage
+${data.Usages}` : ''}
+${data.Credits ? `## Credits
+${data.Credits}` : ''}
 ${data.Features ? `## Features
 ${data.Features}` : ''}
 ${data.Contributions ? `## How to Contribute

@@ -93,20 +93,20 @@ const questions = [
    
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
     fs.writeFile('README.md', data, (err) => {
         if (err) throw err;
         console.log('README.md file generated successfully!');
       });
-    inquirer.prompt(questions)
-    .then((answers) => {
-        const {Title, Description, TableOfContents, Installations, Usage, Credits, Features, Contributions, Tests, License } = answers
-        const data = `title: ${Title}\ndescription: ${Description}\ntableOfContents: ${TableOfContents}\nInstallations: ${Installations}\nusage: ${Usage}\ncredits: ${Credits}\nFeatures: ${Features}\nContributions: ${Contributions}\nTests: ${Tests}\nLicense: ${License}`;
-      writeToFile('README.md', data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    // inquirer.prompt(questions)
+    // .then((answers) => {
+    //     const {Title, Description, TableOfContents, Installations, Usage, Credits, Features, Contributions, Tests, License } = answers
+    //     const data = `title: ${Title}\ndescription: ${Description}\ntableOfContents: ${TableOfContents}\nInstallations: ${Installations}\nusage: ${Usage}\ncredits: ${Credits}\nFeatures: ${Features}\nContributions: ${Contributions}\nTests: ${Tests}\nLicense: ${License}`;
+    //   writeToFile('README.md', data);
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
 
 }
 
@@ -118,6 +118,8 @@ function init() {
     console.log(response)
     // use fs and generate markdown function to create read me See solved for Activity 28
     const readmeData=generateMarkdown(response)
+    writeToFile(readmeData)
+
   }
   
 );
