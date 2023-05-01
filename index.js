@@ -82,7 +82,7 @@ const questions = [
     {
         type: 'input',
         name:'Tests',
-        message:'Are there any tests that you would like to include'
+        message:'Are there any tests that you would like to include?'
     },
     {
         type: 'list',

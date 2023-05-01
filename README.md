@@ -1,10 +1,10 @@
-# jg
-![GNU](https://img.shields.io/badge/license-GNU%20GPLv3-orange)
+# Pet's Are Us
+![Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue)
 
 
 ## Desription
 
-jhjh
+An app that will help pick put your pets name
 
 
 ## Table of Contents
@@ -18,18 +18,18 @@ jhjh
 
 ## License
 
-[GNU] (https://choosealicense.com/licenses/agpl-3.0/)
-Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
+[Apache docs] (https://choosealicense.com/licenses/apache-2.0/)
+A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
 ## Installation
-jlj
+Yes
 ## Usage
-nh
+To find names 
 ## Credits
-klhlh
+nope
 ## Features
-bkjjk
+none
 ## How to Contribute
-kjhj
+by contacting me at lisaridner@yahoo.com
 ## Tests
-bkj
+non
